@@ -10,4 +10,18 @@
     <select id="findUserById" resultType="com.github.mgljava.mybatis.entity.User" parameterType="long">
         SELECT * FROM user WHERE ID = #{id}
     </select>
+
+    <insert id="insertUser" parameterType="com.github.mgljava.mybatis.entity.User">
+        insert into
+            user (username, address)
+            values (#{username}, #{address})
+    </insert>
+
+    <update id="updateUser" parameterType="com.github.mgljava.mybatis.entity.User">
+        update user
+        set
+        <if test="username!=null">username=#{username},</if>
+        <if test="address!=null">address=#{address}</if>
+        where id = #{id}
+    </update>
 </mapper>

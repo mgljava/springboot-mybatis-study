@@ -19,4 +19,12 @@ public class UserService {
   public User findUserById(Long id) {
     return userMapper.findUserById(id);
   }
+
+  public void insertUser(User user) {
+    userMapper.insertUser(user);
+  }
+
+  public void updateUser(User user) {
+    userMapper.updateUser(user);
+  }
 }

@@ -25,4 +25,14 @@ public class UserController {
   public User getUserById(@PathVariable("id") Long id) {
     return userService.findUserById(id);
   }
+
+  @GetMapping(value = "/insert")
+  public void insertUser(String username, String address) {
+    userService.insertUser(new User(0L, username, address));
+  }
+
+  @GetMapping(value = "/update/{id}")
+  public void updateUser(@PathVariable("id") Long id, String username, String address) {
+    userService.updateUser(new User(id, username, address));
+  }
 }
